@@ -1,0 +1,105 @@
+<html><head><base href="https://websim.ai/create"><meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSim AI - Create Your Simulated Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    input[type="submit"] {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://websim.ai/logo.png" alt="WebSim AI Logo">
+  </div>
+  
+  <h1>Create Your Simulated Website</h1>
+  
+  <form action="/simulate" method="POST">
+    <label for="url">Desired URL:</label>
+    <input type="text" id="url" name="url" required placeholder="e.g., https://example.com">
+    
+    <label for="description">Website Description:</label>
+    <textarea id="description" name="description" required placeholder="Describe the website you want to simulate..."></textarea>
+    
+    <label for="features">Key Features (comma-separated):</label>
+    <input type="text" id="features" name="features" placeholder="e.g., responsive design, dark mode, user authentication">
+    
+    <label for="tone">Tone/Style:</label>
+    <input type="text" id="tone" name="tone" placeholder="e.g., professional, playful, minimalist">
+    
+    <input type="submit" value="Create Simulation">
+  </form>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const url = document.getElementById('url').value;
+      const description = document.getElementById('description').value;
+      const features = document.getElementById('features').value;
+      const tone = document.getElementById('tone').value;
+
+      // Normally, we'd send this data to a server. For this simulation, we'll redirect to a fake result page.
+      const params = new URLSearchParams({
+        url: url,
+        description: description,
+        features: features,
+        tone: tone
+      });
+
+      window.location.href = `https://websim.ai/result?${params.toString()}`;
+    });
+  </script>
+</body></html>
